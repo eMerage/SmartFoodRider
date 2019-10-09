@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#dd432b</color>
+    <color name="colorPrimaryDark">#dd432b</color>
+    <color name="colorAccent">#dd432b</color>
+
+
+
+
+
+
+
+    <color name="app_white">#FFFFFF</color>
+    <color name="app_black">#000000</color>
+    <color name="colorTextAsh">#8d8d8d</color>
+    <color name="edittext_background">#00000000</color>
+
+
+    <color name="button_color_green">#27ae60</color>
+    <color name="button_color_dark_green">#239c56</color>
+
+    <color name="button_color_yellow">#f1c40f</color>
+    <color name="button_color_dark_yellow">#dfb50d</color>
+
+
+</resources>

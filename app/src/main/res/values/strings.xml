@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SmartFood Rider</string>
+    <string name="title_activity_maps">SmartFood Rider</string>
+
+
+    <string-array name="slider_menu_items_array">
+        <item>History</item>
+    </string-array>
+</resources>

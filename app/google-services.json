@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "989373532813",
+    "firebase_url": "https://onmeal-rider.firebaseio.com",
+    "project_id": "onmeal-rider",
+    "storage_bucket": "onmeal-rider.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989373532813:android:e29e7b670f201e80",
+        "android_client_info": {
+          "package_name": "emerge.project.onmealrider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989373532813-epj4rtcc36qsme4n7g2gbbedkpj7nph4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "emerge.project.onmealrider",
+            "certificate_hash": "76e9ce16908e0b0084622bdc1bc308acb8446c6d"
+          }
+        },
+        {
+          "client_id": "989373532813-p495jdsd18p6hgbq5csh3sk67cafb2mr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRy5fzPdTb9goYdt610lCYRV4vHQQpPaA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989373532813-p495jdsd18p6hgbq5csh3sk67cafb2mr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

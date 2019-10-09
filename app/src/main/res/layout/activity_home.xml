@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e7e7e7">
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/relativelayout_titelbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorAccent">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_slider_menu"
+                android:layout_width="60dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView_slider_menu"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_view_headline_white" />
+
+            </RelativeLayout>
+
+            <emerge.project.onmealrider.ui.font.OpenSansLight
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:freezesText="true"
+                android:text="ORDERS"
+                android:textColor="@color/app_white"
+                android:textSize="17sp" />
+
+
+        </RelativeLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swiperefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relativelayout_titelbar">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drawer"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_gravity="start"
+        android:layout_marginTop="50dip"
+        android:background="@color/app_white">
+
+        <ListView
+            android:id="@+id/listview_slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:entries="@array/slider_menu_items_array"
+            android:divider="@color/app_white" />
+
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.DrawerLayout>
