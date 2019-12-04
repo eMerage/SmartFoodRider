@@ -72,14 +72,59 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
         holder.textViewCustomerNumber.setText(orders.getMealTimeUser().getMobileNo());
 
 
-        if(orders.getStatusCode().equals("ODDS")){
-            holder.buttonDelivered.setVisibility(View.VISIBLE);
+        if(orders.getPaymentTypeCode().equals("CH")){
+            holder.textViewPaymentType.setText("Cash");
         }else {
-            holder.buttonDelivered.setVisibility(View.INVISIBLE);
+            holder.textViewPaymentType.setText("Card");
         }
 
 
 
+        if(orders.getStatusCode().equals("ODDS")){
+            holder.buttonCollect.setVisibility(View.VISIBLE);
+            holder.buttonDelivered.setVisibility(View.INVISIBLE);
+        }else if(orders.getStatusCode().equals("ODCO")){
+            holder.buttonCollect.setVisibility(View.INVISIBLE);
+            holder.buttonDelivered.setVisibility(View.VISIBLE);
+        }else {
+            holder.buttonCollect.setVisibility(View.INVISIBLE);
+            holder.buttonDelivered.setVisibility(View.INVISIBLE);
+        }
+
+        holder.buttonCollect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (NetworkAvailability.isNetworkAvailable(mContext)) {
+                    if(orders.getStatusCode().equals("ODDS")){
+                        homePresenter.updateOrderStatus(orders.getOrderID(),"ODCO");
+                    }else {
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
+                        alertDialogBuilder.setTitle("Warning");
+                        alertDialogBuilder.setMessage("Order need to dispatch");
+                        alertDialogBuilder.setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        return;
+                                    }
+                                });
+                        alertDialogBuilder.show();
+                    }
+
+                }else {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
+                    alertDialogBuilder.setTitle("Warning");
+                    alertDialogBuilder.setMessage("No Internet Access, Please try again ");
+                    alertDialogBuilder.setPositiveButton("OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    return;
+                                }
+                            });
+                    alertDialogBuilder.show();
+                }
+            }
+        });
 
 
         holder.buttonDelivered.setOnClickListener(new View.OnClickListener() {
@@ -87,12 +132,12 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             public void onClick(View view) {
 
                 if (NetworkAvailability.isNetworkAvailable(mContext)) {
-                    if(orders.getStatusCode().equals("ODDS")){
+                    if(orders.getStatusCode().equals("ODCO")){
                         homePresenter.updateOrderStatus(orders.getOrderID(),"ODDV");
                     }else {
                         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
                         alertDialogBuilder.setTitle("Warning");
-                        alertDialogBuilder.setMessage("Order need to dispatch");
+                        alertDialogBuilder.setMessage("Order need to collect");
                         alertDialogBuilder.setPositiveButton("OK",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
@@ -188,9 +233,14 @@ holder.buttonMap.setOnClickListener(new View.OnClickListener() {
         @BindView(R.id.textView_customer_number)
         TextView textViewCustomerNumber;
 
+        @BindView(R.id.textView_paymenttype)
+        TextView textViewPaymentType;
 
 
 
+
+        @BindView(R.id.button_collect)
+        Button buttonCollect;
 
         @BindView(R.id.button_delivered)
         Button buttonDelivered;

@@ -48,6 +48,10 @@
         <activity android:name=".ui.activity.login.Login"  android:screenOrientation="portrait" />
         <activity android:name=".ui.activity.home.Home"  android:screenOrientation="portrait"  />
         <activity android:name=".ui.activity.history.History"  android:screenOrientation="portrait" ></activity>
+
+        <service
+            android:enabled="true"
+            android:name=".ui.activity.home.PushService" />
     </application>
 
 </manifest>

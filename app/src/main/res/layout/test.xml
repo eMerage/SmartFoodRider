@@ -7,57 +7,82 @@
     tools:context=".ui.activity.home.Home">
 
 
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <RelativeLayout
-            android:id="@+id/relativelayout_titelbar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:background="@color/colorAccent">
-            <emerge.project.onmealrider.ui.font.OpenSansLight
-                android:id="@+id/textView7"
+            android:layout_height="150dp"
+            android:id="@+id/relativelayout">
+
+            <RelativeLayout
+                android:id="@+id/relativelayout_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/img_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_profile_users" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/text_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/relativelayout_image"
                 android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:freezesText="true"
-                android:text="ORDERS"
-                android:textColor="@color/app_white"
-                android:textSize="17sp" />
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp" />
 
 
         </RelativeLayout>
 
-        <android.support.v4.widget.SwipeRefreshLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/swiperefresh"
+
+
+
+        <ListView
+            android:id="@+id/listview_slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/relativelayout_titelbar">
+            android:layout_below="@+id/relativelayout"
+            android:entries="@array/slider_menu_items_array"
+            android:divider="@color/app_white" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerview_main"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+<!--
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/listview_slider">
 
-        </android.support.v4.widget.SwipeRefreshLayout>
+            <TextView
+                android:id="@+id/textView_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/app_black"
+                android:textSize="16sp"
+                android:text="TextView" />
 
+        </RelativeLayout>
+-->
 
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:visibility="gone"/>
 
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>

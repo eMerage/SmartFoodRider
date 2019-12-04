@@ -87,12 +87,59 @@
         android:layout_marginTop="50dip"
         android:background="@color/app_white">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/relativelayout">
+
+            <RelativeLayout
+                android:id="@+id/relativelayout_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/img_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_profile_users" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/textView_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativelayout_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+
+
         <ListView
             android:id="@+id/listview_slider"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/relativelayout"
             android:entries="@array/slider_menu_items_array"
             android:divider="@color/app_white" />
+
+
+
 
 
     </RelativeLayout>

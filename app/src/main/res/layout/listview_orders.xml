@@ -214,13 +214,38 @@
                 android:textSize="15sp" />
 
 
+            <emerge.project.onmealrider.ui.font.OpenSansLight
+                android:id="@+id/openSansLight1555"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/openSansLight155"
+                android:textColor="@color/app_black"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:text="Payment type :" />
+
+            <emerge.project.onmealrider.ui.font.OpenSansLight
+                android:id="@+id/textView_paymenttype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:layout_below="@+id/textView_address"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/app_black"
+                android:text=""
+                android:textSize="15sp" />
+
+
+
             <emerge.project.onmealrider.ui.font.OpenSansLightButton
                 android:id="@+id/button_delivered"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/textView_address"
+                android:layout_below="@+id/textView_paymenttype"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
@@ -230,12 +255,27 @@
 
 
             <emerge.project.onmealrider.ui.font.OpenSansLightButton
+                android:id="@+id/button_collect"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textView_paymenttype"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_button_green"
+                android:text="Collect"
+                android:textColor="@color/app_white" />
+
+
+            <emerge.project.onmealrider.ui.font.OpenSansLightButton
                 android:id="@+id/button_map"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView_address"
+                android:layout_below="@+id/textView_paymenttype"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"

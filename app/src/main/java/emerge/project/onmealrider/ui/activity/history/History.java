@@ -56,7 +56,7 @@ public class History extends Activity implements HistorytView{
 
         if (NetworkAvailability.isNetworkAvailable(getApplicationContext())) {
             progressBar.setVisibility(View.VISIBLE);
-            historyPresenter.getOrders("ODDV");
+            historyPresenter.getOrders("ODCP");
         }else {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Warning");
@@ -74,7 +74,7 @@ public class History extends Activity implements HistorytView{
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                historyPresenter.getOrders("ODDV");
+                historyPresenter.getOrders("ODCP");
             }
         });
 

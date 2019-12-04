@@ -3,6 +3,7 @@ package emerge.project.onmealrider.ui.activity.home;
 
 import java.util.ArrayList;
 
+import emerge.project.onmealrider.data.db.Rider;
 import emerge.project.onmealrider.utils.entittes.Menus;
 import emerge.project.onmealrider.utils.entittes.Orders;
 
@@ -40,8 +41,7 @@ public interface HomeView {
 
     void direction(Double lan,Double lon);
 
-
-
+    void getRiderDetails(Rider rider);
 
 
 }

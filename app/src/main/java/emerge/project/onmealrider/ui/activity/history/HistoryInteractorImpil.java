@@ -48,7 +48,7 @@ public class HistoryInteractorImpil implements HistoryInteractor {
                     ordersArrayList.add(new Orders(ordersList.get(i).getOrderID(), ordersList.get(i).getOrderDate(), ordersList.get(i).getUserID(),
                             ordersList.get(i).getOrderTotal(), ordersList.get(i).getOrderQty(),
                             ordersList.get(i).getDispatchType(), ordersList.get(i).getPickUpTime(), ordersList.get(i).getPromoCode(), ordersList.get(i).getPromoTitle(),
-                            ordersList.get(i).getDeliveryTime(), ordersList.get(i).getMealTimeUser(),ordersList.get(i).getoIrderOutlet(),ordersList.get(i).getStatusCode()));
+                            ordersList.get(i).getDeliveryTime(), ordersList.get(i).getMealTimeUser(),ordersList.get(i).getoIrderOutlet(),ordersList.get(i).getStatusCode(),ordersList.get(i).getPaymentTypeCode()));
                 }
 
                 if (ordersArrayList.isEmpty()) {

@@ -52,7 +52,8 @@ public class HomeInteractorImpil implements HomeInteractor {
                     ordersArrayList.add(new Orders(ordersList.get(i).getOrderID(), ordersList.get(i).getOrderDate(), ordersList.get(i).getUserID(),
                             ordersList.get(i).getOrderTotal(), ordersList.get(i).getOrderQty(),
                             ordersList.get(i).getDispatchType(), ordersList.get(i).getPickUpTime(), ordersList.get(i).getPromoCode(), ordersList.get(i).getPromoTitle(),
-                            ordersList.get(i).getDeliveryTime(), ordersList.get(i).getMealTimeUser(), ordersList.get(i).getoIrderOutlet(), ordersList.get(i).getStatusCode()));
+                            ordersList.get(i).getDeliveryTime(), ordersList.get(i).getMealTimeUser(),
+                            ordersList.get(i).getoIrderOutlet(), ordersList.get(i).getStatusCode(),ordersList.get(i).getPaymentTypeCode()));
                 }
 
                 if (ordersArrayList.isEmpty()) {
@@ -77,7 +78,7 @@ public class HomeInteractorImpil implements HomeInteractor {
 
 
         onUpdateOrderStatusFinishedListener.updateOrderStatusStart();
-        Rider rider = realm.where(Rider.class).findFirst();
+        final Rider rider = realm.where(Rider.class).findFirst();
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<Boolean> call = apiService.updateOrderStatus(orderId, statusCode, rider.getRiderId(), "M", String.valueOf(orderId) + "-" + statusCode);
@@ -97,11 +98,18 @@ public class HomeInteractorImpil implements HomeInteractor {
                     orderCurrentStatus = 2;
                 } else if (statusCode.equals("ODDS")) {
                     orderCurrentStatus = 3;
+                } else if (statusCode.equals("ODDV")) {
+                    orderCurrentStatus = 4;
                 }
 
 
                 if (status) {
-                    onUpdateOrderStatusFinishedListener.updateOrderStatusSuccessful(orderCurrentStatus);
+                    if(statusCode.equals("ODDV")){
+                        updateOrderStatusToFinsh(orderId,rider.getRiderId(),onUpdateOrderStatusFinishedListener);
+                    }else {
+                        onUpdateOrderStatusFinishedListener.updateOrderStatusSuccessful(orderCurrentStatus);
+                    }
+
                 } else {
                     onUpdateOrderStatusFinishedListener.updateOrderStatusFail(orderId,statusCode,"Update Fail");
 
@@ -117,6 +125,33 @@ public class HomeInteractorImpil implements HomeInteractor {
 
 
     }
+
+
+    public void updateOrderStatusToFinsh(final int orderId, final int riderID,final OnUpdateOrderStatusFinishedListener onUpdateOrderStatusFinishedListener) {
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<Boolean> call = apiService.updateOrderStatus(orderId, "ODCP",riderID, "M", String.valueOf(orderId) + "-" + "ODCP");
+        call.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                Boolean status = response.body();
+
+                if (status) {
+                    onUpdateOrderStatusFinishedListener.updateOrderStatusSuccessful(4);
+                } else {
+                    onUpdateOrderStatusFinishedListener.updateOrderStatusFail(orderId,"ODCP","Update Fail");
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                call.clone().enqueue(this);
+            }
+        });
+
+    }
+
 
     @Override
     public void getOrdersFullDetails(final int orderId, final OnGetOrdersFullDetailsFinishedListener onGetOrdersFullDetailsFinishedListener) {
@@ -165,5 +200,14 @@ public class HomeInteractorImpil implements HomeInteractor {
     @Override
     public void getDirection(Double lan, Double lon, OnGetDirectionFinishedListener onGetDirectionFinishedListener) {
         onGetDirectionFinishedListener.direction(lan,lon);
+    }
+
+    @Override
+    public void getRider(OnGetRiderDetailsFinishedListener onGetRiderDetailsFinishedListener) {
+
+        final Rider rider = realm.where(Rider.class).findFirst();
+        onGetRiderDetailsFinishedListener.getRiderDetails(rider);
+
+
     }
 }

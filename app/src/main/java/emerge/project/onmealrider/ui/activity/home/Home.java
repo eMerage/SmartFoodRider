@@ -20,6 +20,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 import emerge.project.onmealrider.R;
+import emerge.project.onmealrider.data.db.Rider;
 import emerge.project.onmealrider.servies.network.NetworkAvailability;
 import emerge.project.onmealrider.ui.activity.history.History;
 import emerge.project.onmealrider.ui.activity.login.Login;
@@ -55,11 +57,17 @@ public class Home extends Activity implements HomeView {
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
 
+    @BindView(R.id.textView_username)
+    TextView textViewUsername;
+
+
 
     HomePresenter homePresenter;
 
     OrdersAdapter ordersAdapter;
     MenuAdapter menuAdapter;
+
+    static Home instance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +75,14 @@ public class Home extends Activity implements HomeView {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
+
+        instance = this;
+
         homePresenter = new HomePresenterImpli(this);
+        homePresenter.getRider();
+
+
+
         setRecycalView();
 
         if (NetworkAvailability.isNetworkAvailable(getApplicationContext())) {
@@ -95,6 +110,11 @@ public class Home extends Activity implements HomeView {
 
     }
 
+    public void refrashOrdersWhenOrderProsess() {
+        progressBar.setVisibility(View.VISIBLE);
+        homePresenter.getOrders("ODPN");
+
+    }
 
     @OnItemClick(R.id.listview_slider)
     public void onItemClick(int position) {
@@ -187,6 +207,7 @@ public class Home extends Activity implements HomeView {
     public void updateOrderStatusSuccessful(int orderCurrentStatus) {
         unBloackUserInteraction();
         homePresenter.getOrders("ODDS");
+
 
     }
 
@@ -355,6 +376,11 @@ public class Home extends Activity implements HomeView {
 
 
 
+    }
+
+    @Override
+    public void getRiderDetails(Rider rider) {
+        textViewUsername.setText(rider.getRidername());
     }
 
 

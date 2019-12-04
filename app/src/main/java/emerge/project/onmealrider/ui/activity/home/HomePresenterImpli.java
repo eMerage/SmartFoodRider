@@ -3,6 +3,7 @@ package emerge.project.onmealrider.ui.activity.home;
 
 import java.util.ArrayList;
 
+import emerge.project.onmealrider.data.db.Rider;
 import emerge.project.onmealrider.ui.activity.history.HistoryInteractor;
 import emerge.project.onmealrider.utils.entittes.Menus;
 import emerge.project.onmealrider.utils.entittes.Orders;
@@ -15,7 +16,9 @@ import emerge.project.onmealrider.utils.entittes.Orders;
 public class HomePresenterImpli implements HomePresenter,
         HomeInteractor.OnGetOrdersFinishedListener,
         HomeInteractor.OnUpdateOrderStatusFinishedListener,
-HomeInteractor.OnGetOrdersFullDetailsFinishedListener,HomeInteractor.OnGetDirectionFinishedListener {
+HomeInteractor.OnGetOrdersFullDetailsFinishedListener
+        ,HomeInteractor.OnGetDirectionFinishedListener,
+HomeInteractor.OnGetRiderDetailsFinishedListener{
 
 
     private HomeView homeView;
@@ -131,8 +134,23 @@ HomeInteractor.OnGetOrdersFullDetailsFinishedListener,HomeInteractor.OnGetDirect
     public void getDirection(Double lan, Double lon) {
         homeInteractor.getDirection(lan,lon,this);
     }
+
+
+
     @Override
     public void direction(Double lan, Double lon) {
         homeView.direction(lan,lon);
+    }
+
+
+
+    @Override
+    public void getRider() {
+        homeInteractor.getRider(this);
+    }
+
+    @Override
+    public void getRiderDetails(Rider rider) {
+        homeView.getRiderDetails(rider);
     }
 }

@@ -70,8 +70,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
 
         holder.textViewCustomerNumber.setText(orders.getMealTimeUser().getMobileNo());
 
-
-
+        holder.textViewDate.setText(orders.getOrderDate().substring(0,10));
 
 
 
@@ -109,6 +108,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
         @BindView(R.id.textView_customer_number)
         TextView textViewCustomerNumber;
 
+        @BindView(R.id.textView_date)
+        TextView textViewDate;
 
 
 

@@ -34,6 +34,9 @@ public class Orders implements Serializable {
     @SerializedName("promoTitle")
     String promoTitle;
 
+    @SerializedName("paymentTypeCode")
+    String paymentTypeCode;
+
 
     @SerializedName("deliveryTime")
     DeliveryTime deliveryTime;
@@ -50,7 +53,7 @@ public class Orders implements Serializable {
 
 
     public Orders(int orderID, String orderDate, int userID, Double orderTotal, int orderQty, String dispatchType, String pickUpTime, String promoCode, String promoTitle,
-                  DeliveryTime deliveryTime, MealTimeUser mealTimeUser, OIrderOutlet oIrderOutlet,String statusCode ) {
+                  DeliveryTime deliveryTime, MealTimeUser mealTimeUser, OIrderOutlet oIrderOutlet,String statusCode,String paymentType ) {
         this.orderID = orderID;
         this.orderDate = orderDate;
         this.userID = userID;
@@ -64,6 +67,7 @@ public class Orders implements Serializable {
         this.mealTimeUser = mealTimeUser;
         this.oIrderOutlet = oIrderOutlet;
         this.statusCode = statusCode;
+        this.paymentTypeCode = paymentType;
     }
 
     public int getOrderID() {
@@ -169,5 +173,13 @@ public class Orders implements Serializable {
 
     public void setStatusCode(String statusCode) {
         this.statusCode = statusCode;
+    }
+
+    public String getPaymentTypeCode() {
+        return paymentTypeCode;
+    }
+
+    public void setPaymentTypeCode(String paymentTypeCode) {
+        this.paymentTypeCode = paymentTypeCode;
     }
 }

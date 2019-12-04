@@ -9,9 +9,6 @@ public interface HomePresenter {
 
 
 
-
-
-
     void getOrders(String statusCode);
 
     void updateOrderStatus(int orderId,String statusCode);
@@ -20,6 +17,9 @@ public interface HomePresenter {
 
     void getDirection(Double lan,Double lon);
 
+
+
+    void getRider();
 
 
 }
