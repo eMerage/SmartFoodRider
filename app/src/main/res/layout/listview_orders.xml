@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/openSansLight8"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="140dp"
                 android:layout_marginRight="5dp"
                 android:freezesText="true"
                 android:textColor="@color/app_black"
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="140dp"
                 android:layout_marginRight="5dp"
                 android:freezesText="true"
                 android:textColor="@color/app_black"
@@ -84,12 +84,16 @@
                 android:id="@+id/textView_outlet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="140dp"
                 android:layout_below="@+id/textView_time"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/app_black"
                 android:textSize="15sp"
                 android:text="" />
+
+
+
+
 
             <emerge.project.onmealrider.ui.font.OpenSansLight
                 android:id="@+id/openSansLight4"
@@ -101,18 +105,50 @@
                 android:textColor="@color/app_black"
                 android:layout_marginLeft="5dp"
                 android:textSize="15sp"
-                android:text="Total Amount  " />
+                android:text="Total To Outlet :" />
+
+
 
             <emerge.project.onmealrider.ui.font.OpenSansLight
                 android:id="@+id/textView_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="140dp"
                 android:layout_below="@+id/openSansLight2"
                 android:textColor="@color/app_black"
                 android:layout_marginRight="5dp"
                 android:textSize="15sp"
                 android:text="" />
+            
+            <emerge.project.onmealrider.ui.font.OpenSansLight
+                android:id="@+id/openSansLight455"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView_amount"
+                android:textColor="@color/app_black"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:text="Total To Customer:" />
+
+
+
+            <emerge.project.onmealrider.ui.font.OpenSansLight
+                android:id="@+id/textView_amount_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_below="@+id/textView_amount"
+                android:textColor="@color/app_black"
+                android:layout_marginRight="5dp"
+                android:textSize="15sp"
+                android:text="" />
+
+
+
+
+
 
             <emerge.project.onmealrider.ui.font.OpenSansLight
                 android:id="@+id/openSansLight6"
@@ -120,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/openSansLight4"
+                android:layout_below="@+id/textView_amount_customer"
                 android:textColor="@color/app_black"
                 android:layout_marginLeft="5dp"
                 android:textSize="15sp"
@@ -130,8 +166,8 @@
                 android:id="@+id/textView_qty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_below="@+id/openSansLight4"
+                android:layout_marginLeft="140dp"
+                android:layout_below="@+id/textView_amount_customer"
                 android:textColor="@color/app_black"
                 android:layout_marginRight="5dp"
                 android:textSize="15sp"
@@ -154,7 +190,7 @@
                 android:id="@+id/textView_customer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="140dp"
                 android:layout_below="@+id/openSansLight6"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/app_black"
@@ -181,7 +217,7 @@
                 android:id="@+id/textView_customer_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="140dp"
                 android:layout_below="@+id/textView_customer"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/app_black"
@@ -206,7 +242,7 @@
                 android:id="@+id/textView_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="140dp"
                 android:layout_below="@+id/textView_customer_number"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/app_black"
@@ -230,7 +266,7 @@
                 android:id="@+id/textView_paymenttype"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="140dp"
                 android:layout_below="@+id/textView_address"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/app_black"
@@ -243,12 +279,10 @@
                 android:id="@+id/button_delivered"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/textView_paymenttype"
                 android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginLeft="110dp"
+                android:layout_below="@+id/textView_paymenttype"
                 android:background="@drawable/selector_button_green"
                 android:text="Delivered"
                 android:textColor="@color/app_white" />
@@ -258,12 +292,11 @@
                 android:id="@+id/button_collect"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
+
                 android:layout_below="@+id/textView_paymenttype"
                 android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginLeft="110dp"
                 android:background="@drawable/selector_button_green"
                 android:text="Collect"
                 android:textColor="@color/app_white" />
@@ -282,7 +315,22 @@
                 android:background="@drawable/selector_button_yellow"
                 android:text="Map"
                 android:textColor="@color/app_white" />
-            
+
+
+            <emerge.project.onmealrider.ui.font.OpenSansLightButton
+                android:id="@+id/button_call"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+
+                android:layout_below="@+id/textView_paymenttype"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="220dp"
+                android:background="@drawable/selector_button_red"
+                android:text="Call"
+                android:textColor="@color/app_white" />
+
+
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

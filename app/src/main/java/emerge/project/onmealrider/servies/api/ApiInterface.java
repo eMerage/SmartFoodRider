@@ -2,6 +2,7 @@ package emerge.project.onmealrider.servies.api;
 
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,7 +26,7 @@ public interface ApiInterface {
 
 
     @GET("Order/GetOrdersForRider")
-    Call<List<Orders>> getOrdersForRider(@Query("riderID") int riderID, @Query("orderStatusCode") String orderStatusCode);
+    Call<ArrayList<Orders>> getOrdersForRider(@Query("riderID") int riderID, @Query("orderStatusCode") String orderStatusCode);
 
 
 

@@ -29,7 +29,7 @@ public class HomeInteractorImpil implements HomeInteractor {
 
     Realm realm = Realm.getDefaultInstance();
 
-
+     ArrayList<Orders> ordersArrayList = new ArrayList<Orders>();
 
     @Override
     public void getOrders(final String statusCode, final OnGetOrdersFinishedListener onGetOrdersFinishedListener) {
@@ -37,36 +37,27 @@ public class HomeInteractorImpil implements HomeInteractor {
 
         Rider rider = realm.where(Rider.class).findFirst();
 
-        final ArrayList<Orders> ordersArrayList = new ArrayList<Orders>();
+
 
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<Orders>> call = apiService.getOrdersForRider(rider.getRiderId(), statusCode);
+        Call<ArrayList<Orders>> call = apiService.getOrdersForRider(rider.getRiderId(), statusCode);
 
 
-        call.enqueue(new Callback<List<Orders>>() {
+        call.enqueue(new Callback<ArrayList<Orders>>() {
             @Override
-            public void onResponse(Call<List<Orders>> call, Response<List<Orders>> response) {
-                List<Orders> ordersList = response.body();
-                for (int i = 0; i < ordersList.size(); i++) {
-                    ordersArrayList.add(new Orders(ordersList.get(i).getOrderID(), ordersList.get(i).getOrderDate(), ordersList.get(i).getUserID(),
-                            ordersList.get(i).getOrderTotal(), ordersList.get(i).getOrderQty(),
-                            ordersList.get(i).getDispatchType(), ordersList.get(i).getPickUpTime(), ordersList.get(i).getPromoCode(), ordersList.get(i).getPromoTitle(),
-                            ordersList.get(i).getDeliveryTime(), ordersList.get(i).getMealTimeUser(),
-                            ordersList.get(i).getoIrderOutlet(), ordersList.get(i).getStatusCode(),ordersList.get(i).getPaymentTypeCode()));
-                }
-
+            public void onResponse(Call<ArrayList<Orders>> call, Response<ArrayList<Orders>> response) {
+                ordersArrayList = response.body();
                 if (ordersArrayList.isEmpty()) {
                     onGetOrdersFinishedListener.noOrdersList();
                 } else {
                     onGetOrdersFinishedListener.ordersList(ordersArrayList);
                 }
 
-
             }
 
             @Override
-            public void onFailure(Call<List<Orders>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Orders>> call, Throwable t) {
                 onGetOrdersFinishedListener.ordersTimeOut(statusCode);
             }
         });

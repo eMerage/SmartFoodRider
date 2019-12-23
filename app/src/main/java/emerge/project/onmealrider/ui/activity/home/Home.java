@@ -1,12 +1,16 @@
 package emerge.project.onmealrider.ui.activity.home;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -61,6 +65,7 @@ public class Home extends Activity implements HomeView {
     TextView textViewUsername;
 
 
+    private static final int PERMISSIONS_CALL = 101;
 
     HomePresenter homePresenter;
 
@@ -80,6 +85,12 @@ public class Home extends Activity implements HomeView {
 
         homePresenter = new HomePresenterImpli(this);
         homePresenter.getRider();
+
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CALL_PHONE}, PERMISSIONS_CALL);
+        }
 
 
 
@@ -278,6 +289,20 @@ public class Home extends Activity implements HomeView {
 
 
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSIONS_CALL: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                } else {
+
+                }
+                return;
+            }
+        }
     }
 
     @Override
