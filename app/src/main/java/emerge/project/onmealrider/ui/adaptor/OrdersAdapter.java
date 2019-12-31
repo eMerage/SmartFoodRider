@@ -86,9 +86,16 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
 
 
 
+
+
         if (orders.getPaymentTypeCode().equals("CH")) {
             holder.textViewPaymentType.setText("Cash");
+            holder.textHintAmountOutlet.setVisibility(View.VISIBLE);
+            holder.textViewAmount.setVisibility(View.VISIBLE);
         } else {
+            holder.textHintAmountOutlet.setVisibility(View.GONE);
+            holder.textViewAmount.setVisibility(View.GONE);
+
             holder.textViewPaymentType.setText("Card");
         }
 
@@ -103,6 +110,12 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             holder.buttonCollect.setVisibility(View.INVISIBLE);
             holder.buttonDelivered.setVisibility(View.INVISIBLE);
         }
+
+        holder.textViewNote.setText(orders.getOrderNote());
+
+
+
+
 
         holder.buttonCollect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -226,6 +239,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
         });
 
 
+
+
     }
 
     @Override
@@ -284,8 +299,12 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
         TextView textViewAmountCustomer;
 
 
+        @BindView(R.id.textView_note)
+        TextView textViewNote;
 
 
+        @BindView(R.id.openSansLight4)
+        TextView textHintAmountOutlet;
 
 
 

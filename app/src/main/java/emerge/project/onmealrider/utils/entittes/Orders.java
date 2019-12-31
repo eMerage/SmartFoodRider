@@ -41,6 +41,11 @@ public class Orders implements Serializable {
     @SerializedName("paymentTypeCode")
     String paymentTypeCode;
 
+    @SerializedName("orderNote")
+    String orderNote;
+
+
+
 
     @SerializedName("deliveryTime")
     DeliveryTime deliveryTime;
@@ -176,5 +181,13 @@ public class Orders implements Serializable {
 
     public void setSubTotal(Double subTotal) {
         this.subTotal = subTotal;
+    }
+
+    public String getOrderNote() {
+        return orderNote;
+    }
+
+    public void setOrderNote(String orderNote) {
+        this.orderNote = orderNote;
     }
 }

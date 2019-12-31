@@ -235,7 +235,7 @@
                 android:textColor="@color/app_black"
                 android:layout_marginLeft="5dp"
                 android:textSize="15sp"
-                android:text="address :" />
+                android:text="Address :" />
 
 
             <emerge.project.onmealrider.ui.font.OpenSansLight
@@ -250,19 +250,19 @@
                 android:textSize="15sp" />
 
 
-            <emerge.project.onmealrider.ui.font.OpenSansLight
+            <emerge.project.onmealrider.ui.font.OpenSansBold
                 android:id="@+id/openSansLight1555"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/openSansLight155"
+                android:layout_below="@+id/textView_address"
                 android:textColor="@color/app_black"
                 android:layout_marginLeft="5dp"
                 android:textSize="15sp"
                 android:text="Payment type :" />
 
-            <emerge.project.onmealrider.ui.font.OpenSansLight
+            <emerge.project.onmealrider.ui.font.OpenSansBold
                 android:id="@+id/textView_paymenttype"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -275,6 +275,31 @@
 
 
 
+
+            <emerge.project.onmealrider.ui.font.OpenSansLight
+                android:id="@+id/openSansLight17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView_paymenttype"
+                android:textColor="@color/app_black"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:text="Note :" />
+
+            <emerge.project.onmealrider.ui.font.OpenSansLight
+                android:id="@+id/textView_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_below="@+id/textView_paymenttype"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/app_black"
+                android:text=""
+                android:textSize="15sp" />
+
+
             <emerge.project.onmealrider.ui.font.OpenSansLightButton
                 android:id="@+id/button_delivered"
                 android:layout_width="100dp"
@@ -282,7 +307,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="110dp"
-                android:layout_below="@+id/textView_paymenttype"
+                android:layout_below="@+id/textView_note"
                 android:background="@drawable/selector_button_green"
                 android:text="Delivered"
                 android:textColor="@color/app_white" />
@@ -293,7 +318,7 @@
                 android:layout_width="100dp"
                 android:layout_height="40dp"
 
-                android:layout_below="@+id/textView_paymenttype"
+                android:layout_below="@+id/textView_note"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="110dp"
@@ -308,7 +333,7 @@
                 android:layout_height="40dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView_paymenttype"
+                android:layout_below="@+id/textView_note"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
@@ -322,7 +347,7 @@
                 android:layout_width="70dp"
                 android:layout_height="40dp"
 
-                android:layout_below="@+id/textView_paymenttype"
+                android:layout_below="@+id/textView_note"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="220dp"
