@@ -1,52 +1,37 @@
 {
   "project_info": {
-    "project_number": "989373532813",
-    "firebase_url": "https://onmeal-rider.firebaseio.com",
-    "project_id": "onmeal-rider",
-    "storage_bucket": "onmeal-rider.appspot.com"
+    "project_number": "523218090340",
+    "firebase_url": "https://smartfoodrider.firebaseio.com",
+    "project_id": "smartfoodrider",
+    "storage_bucket": "smartfoodrider.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:989373532813:android:e29e7b670f201e80",
+        "mobilesdk_app_id": "1:523218090340:android:b90ffead60f03086ee6271",
         "android_client_info": {
           "package_name": "emerge.project.onmealrider"
         }
       },
       "oauth_client": [
         {
-          "client_id": "989373532813-epj4rtcc36qsme4n7g2gbbedkpj7nph4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "emerge.project.onmealrider",
-            "certificate_hash": "76e9ce16908e0b0084622bdc1bc308acb8446c6d"
-          }
-        },
-        {
-          "client_id": "989373532813-p495jdsd18p6hgbq5csh3sk67cafb2mr.apps.googleusercontent.com",
+          "client_id": "523218090340-goit4kcd96lk3rtaurhnkmllacuaie2a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBRy5fzPdTb9goYdt610lCYRV4vHQQpPaA"
+          "current_key": "AIzaSyD5XBi-VJaq3UzkZ9V25-6jFHpIVWz5D3o"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "989373532813-p495jdsd18p6hgbq5csh3sk67cafb2mr.apps.googleusercontent.com",
+              "client_id": "523218090340-goit4kcd96lk3rtaurhnkmllacuaie2a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
