@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -19,6 +20,7 @@ import butterknife.OnClick;
 import emerge.project.onmealrider.R;
 import emerge.project.onmealrider.servies.network.NetworkAvailability;
 import emerge.project.onmealrider.ui.activity.home.Home;
+import emerge.project.onmealrider.utils.entittes.UpdateToken;
 
 
 public class Login extends Activity implements LoginView{
@@ -60,7 +62,7 @@ public class Login extends Activity implements LoginView{
         if (NetworkAvailability.isNetworkAvailable(getApplicationContext())) {
             bloackUserInteraction();
             proprogressview.setVisibility(View.VISIBLE);
-            loginPresenter.checkLoginValidation(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+            loginPresenter.checkLoginValidation(this,editTextEmail.getText().toString(), editTextPassword.getText().toString());
 
         } else {
             Toast.makeText(this, "No Internet Access !,Please try again", Toast.LENGTH_LONG).show();
@@ -98,9 +100,8 @@ public class Login extends Activity implements LoginView{
     @Override
     public void loginValidationSuccessful() {
         proprogressview.setVisibility(View.GONE);
-        Intent intent = new Intent(Login.this, Home.class);
-        startActivity(intent);
-        finish();
+        loginPresenter.updatePushTokenAndAppVersion(this);
+
     }
 
     @Override
@@ -115,6 +116,57 @@ public class Login extends Activity implements LoginView{
         unBloackUserInteraction();
         proprogressview.setVisibility(View.INVISIBLE);
         Toast.makeText(this, "Login fail,Please try again", Toast.LENGTH_LONG).show();
+
+
+    }
+
+    @Override
+    public void updateStatus(Boolean status, final UpdateToken updateToken) {
+        if(status){
+            Intent intent = new Intent(Login.this, Home.class);
+            startActivity(intent);
+            finish();
+        }else {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("App Update");
+            alertDialogBuilder.setMessage(updateToken.getError().getErrDescription());
+
+            if((updateToken.getError().getErrCode().equals("CE")) || (updateToken.getError().getErrCode().equals("SYSE")) ){
+                alertDialogBuilder.setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(Login.this, "You can not processed", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        });
+
+
+            }else {
+                alertDialogBuilder.setPositiveButton("Update",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(updateToken.getAppUrl()));
+                                startActivity(browserIntent);
+
+                                return;
+                            }
+                        });
+                alertDialogBuilder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(Login.this, "You can not processed", Toast.LENGTH_SHORT).show();
+
+                        return;
+                    }
+                });
+
+            }
+
+            alertDialogBuilder.show();
+
+
+        }
+
 
 
     }

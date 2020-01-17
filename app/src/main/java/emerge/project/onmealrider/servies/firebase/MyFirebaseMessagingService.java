@@ -17,6 +17,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import emerge.project.onmealrider.R;
 import emerge.project.onmealrider.ui.activity.home.Home;
+import emerge.project.onmealrider.ui.activity.home.PushService;
 
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -55,6 +56,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     public void notification(String titel, String message){
+
+
+        Intent myIntent = new Intent(getBaseContext(), PushService.class);
+        startService(myIntent);
+
+
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)

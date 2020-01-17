@@ -13,11 +13,15 @@ public class Rider extends RealmObject implements Serializable {
     @PrimaryKey
     long rowid;
 
-    @SerializedName("designationID")
+    @SerializedName("id")
     int riderId;
 
     @SerializedName("name")
     String ridername;
+
+
+
+
 
     public Rider() {
     }

@@ -8,7 +8,11 @@ import java.util.List;
 
 import emerge.project.onmealrider.data.db.Rider;
 import emerge.project.onmealrider.utils.entittes.Orders;
+import emerge.project.onmealrider.utils.entittes.UpdateToken;
+import emerge.project.onmealrider.utils.entittes.User;
+import io.reactivex.Observable;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -25,8 +29,15 @@ public interface ApiInterface {
     Call<Rider> userLoginValidation(@Query("eMail") String email, @Query("Password") String password);
 
 
+    @GET("MealTimeUser/GetUserByEmail")
+    Call<User> getUserByEmail(@Query("email") String email, @Query("pushTokenId") String pushTokenId);
+
+
+
+
     @GET("Order/GetOrdersForRider")
-    Call<ArrayList<Orders>> getOrdersForRider(@Query("riderID") int riderID, @Query("orderStatusCode") String orderStatusCode);
+    Call<ArrayList<Orders>> getOrdersForRider(@Query("userID") int riderID, @Query("orderStatusCode") String orderStatusCode);
+
 
 
 
@@ -36,6 +47,19 @@ public interface ApiInterface {
 
     @GET("Order/GetOrderHistoryByOrder")
     Call<JsonObject> orderHistorDetails(@Query("OrderID") int orderID);
+
+
+
+
+    @POST("MealTime/SaveMealTimeUserPushToken")
+    Call<UpdateToken> saveMealTimeUserPushToken(@Query("UserID") int userID, @Query("pushToken") String pushToken, @Query("appVersion") int appVersion,
+                                                      @Query("AppType") String AppType, @Query("AppOs") String AppOs);
+
+
+
+
+
+
 
 
 

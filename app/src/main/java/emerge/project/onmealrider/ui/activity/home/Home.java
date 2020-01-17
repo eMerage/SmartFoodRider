@@ -80,7 +80,6 @@ public class Home extends Activity implements HomeView {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
-
         instance = this;
 
         homePresenter = new HomePresenterImpli(this);

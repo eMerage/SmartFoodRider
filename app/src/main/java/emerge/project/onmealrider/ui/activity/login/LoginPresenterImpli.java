@@ -1,13 +1,17 @@
 package emerge.project.onmealrider.ui.activity.login;
 
 
+import android.content.Context;
 
+import emerge.project.onmealrider.utils.entittes.UpdateToken;
 
 /**
  * Created by Himanshu on 4/4/2017.
  */
 
-public class LoginPresenterImpli implements LoginPresenter,LoginInteractor.OnLoginValidationFinishedListener{
+public class LoginPresenterImpli implements LoginPresenter,
+        LoginInteractor.OnLoginValidationFinishedListener,
+        LoginInteractor.OnUpdatePushTokenAndAppVersionFinishedListener{
 
 
     private LoginView loginView;
@@ -52,7 +56,20 @@ public class LoginPresenterImpli implements LoginPresenter,LoginInteractor.OnLog
     }
 
     @Override
-    public void checkLoginValidation(String userName, String password) {
-        loginInteractor.checkLoginValidation(userName,password,this);
+    public void checkLoginValidation(Context context, String userName, String password) {
+        loginInteractor.checkLoginValidation( context,userName,password,this);
+    }
+
+
+    @Override
+    public void updatePushTokenAndAppVersion(Context con) {
+        loginInteractor.updatePushTokenAndAppVersion( con,this);
+    }
+
+
+
+    @Override
+    public void updateStatus(Boolean status, UpdateToken updateToken) {
+        loginView.updateStatus(status,updateToken);
     }
 }

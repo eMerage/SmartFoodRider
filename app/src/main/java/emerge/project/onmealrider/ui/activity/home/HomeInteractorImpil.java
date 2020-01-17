@@ -34,11 +34,7 @@ public class HomeInteractorImpil implements HomeInteractor {
     @Override
     public void getOrders(final String statusCode, final OnGetOrdersFinishedListener onGetOrdersFinishedListener) {
 
-
         Rider rider = realm.where(Rider.class).findFirst();
-
-
-
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ArrayList<Orders>> call = apiService.getOrdersForRider(rider.getRiderId(), statusCode);

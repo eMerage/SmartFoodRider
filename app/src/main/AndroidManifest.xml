@@ -49,6 +49,19 @@
         <activity android:name=".ui.activity.home.Home"  android:screenOrientation="portrait"  />
         <activity android:name=".ui.activity.history.History"  android:screenOrientation="portrait" ></activity>
 
+
+
+        <service android:name=".servies.firebase.FirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".servies.firebase.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <service
             android:enabled="true"
             android:name=".ui.activity.home.PushService" />
